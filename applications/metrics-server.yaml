@@ -8,9 +8,11 @@ spec:
   source:
     repoURL: https://github.com/linusyong/argocd
     targetRevision: HEAD
-    path: applications
-    directory:
-      recurse: true
+    path: helm/metrics-server
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
   destination:
-    server: https://kubernetes.default.svc
     namespace: metrics-server
+    server: https://kubernetes.default.svc

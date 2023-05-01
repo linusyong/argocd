@@ -9,9 +9,9 @@ resource "kubernetes_manifest" "metrics_server_application" {
     "spec" = {
       "project" = "default"
       "source" = {
-        "repoURL"        = "https://charts.bitnami.com/bitnami"
-        "chart"          = "metrics-server"
-        "targetRevision" = var.metrics_server_helm_version
+        "repoURL"        = "https://github.com/linusyong/argocd"
+        "targetRevision" = "HEAD"
+        "path"           = "helm/metrics-server"
       }
       "syncPolicy" = {
         "automated" = {
@@ -36,15 +36,15 @@ resource "kubernetes_manifest" "bitnami_helm_repo" {
     "apiVersion" = "v1"
     "kind"       = "Secret"
     "metadata" = {
-      "name"      = "bitnami-helm-repo"
+      "name"      = "helm-repo"
       "namespace" = "argo-cd"
       "labels" = {
         "argocd.argoproj.io/secret-type" = "repository"
       }
     }
     "data" = {
-      "type" = base64encode("helm")
-      "url"  = base64encode("https://charts.bitnami.com/bitnami")
+      "type" = base64encode("git")
+      "url"  = base64encode("https://github.com/linusyong/argocd")
     }
   }
 }
