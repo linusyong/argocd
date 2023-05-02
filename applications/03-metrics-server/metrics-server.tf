@@ -9,9 +9,8 @@ resource "kubernetes_manifest" "metrics_server_application" {
     "spec" = {
       "project" = "default"
       "source" = {
-        "repoURL"        = "https://github.com/linusyong/argocd"
-        "targetRevision" = "HEAD"
-        "path"           = "helm/metrics-server"
+        "repoURL"        = "https://github.com/linusyong/metrics-server-helm"
+        "targetRevision" = "6.2.17"
       }
       "syncPolicy" = {
         "automated" = {
