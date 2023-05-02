@@ -10,7 +10,8 @@ resource "kubernetes_manifest" "metrics_server_application" {
       "project" = "default"
       "source" = {
         "repoURL"        = "https://github.com/linusyong/metrics-server-helm"
-        "targetRevision" = "6.2.17"
+        "targetRevision" = "v6.2.17"
+        "path"           = "."
       }
       "syncPolicy" = {
         "automated" = {
