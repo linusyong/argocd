@@ -1,4 +1,4 @@
-variable "argo_cd__helm_version" {
+variable "argo_cd_helm_version" {
   description = "The ArgoCD Helm Chart version to be installed"
   type        = string
   default     = "5.29.1"
