@@ -9,9 +9,9 @@ resource "kubernetes_manifest" "metrics_server_application" {
     "spec" = {
       "project" = "default"
       "source" = {
-        "repoURL"        = "https://github.com/linusyong/metrics-server-helm"
-        "targetRevision" = "v6.2.17"
-        "path"           = "."
+        "repoURL"        = "https://github.com/linusyong/helm-charts"
+        "targetRevision" = var.helm_repo_version
+        "path"           = "metrics-server/${var.metrics_server_helm_version}"
       }
       "syncPolicy" = {
         "automated" = {
@@ -44,7 +44,7 @@ resource "kubernetes_manifest" "bitnami_helm_repo" {
     }
     "data" = {
       "type" = base64encode("git")
-      "url"  = base64encode("https://github.com/linusyong/argocd")
+      "url"  = base64encode("https://github.com/linusyong/helm-charts")
     }
   }
 }

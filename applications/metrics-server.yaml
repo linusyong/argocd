@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/linusyong/argocd
-    targetRevision: HEAD
-    path: helm/metrics-server
+    repoURL: https://github.com/linusyong/helm-charts
+    targetRevision: v0.0.1
+    path: metrics-server
   syncPolicy:
     automated:
       prune: true
