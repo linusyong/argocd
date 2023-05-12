@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/linusyong/helm-charts
     targetRevision: v0.0.3
-    path: metrics-server/v0.6.2
+    path: metrics-server/v0.6.3
   syncPolicy:
     automated:
       prune: true
