@@ -27,16 +27,16 @@ resource "kubernetes_manifest" "metrics_server_application" {
   }
 
   depends_on = [
-    kubernetes_manifest.bitnami_helm_repo,
+    kubernetes_manifest.metrics_server_helm_repo,
   ]
 }
 
-resource "kubernetes_manifest" "bitnami_helm_repo" {
+resource "kubernetes_manifest" "metrics_server_helm_repo" {
   manifest = {
     "apiVersion" = "v1"
     "kind"       = "Secret"
     "metadata" = {
-      "name"      = "helm-repo"
+      "name"      = "metrics-server-helm-repo"
       "namespace" = "argo-cd"
       "labels" = {
         "argocd.argoproj.io/secret-type" = "repository"
