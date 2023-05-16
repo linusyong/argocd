@@ -13,6 +13,10 @@ resource "kubernetes_manifest" "karpenter_application" {
         "targetRevision" = var.helm_repo_version
         "path"           = "karpenter/${var.karpenter_helm_version}"
         "helm" = {
+          "valueFiles" = [
+            "values.yaml",
+            "values-dev.yaml",
+          ]
           "parameters" = [
             {
               "name"  = "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn"
@@ -29,10 +33,6 @@ resource "kubernetes_manifest" "karpenter_application" {
             {
               "name"  = "controller.clusterEndpoint"
               "value" = data.terraform_remote_state.eks.outputs.cluster.endpoint
-            },
-            {
-              "name"  = "replicas"
-              "value" = 1
             },
           ]
         }

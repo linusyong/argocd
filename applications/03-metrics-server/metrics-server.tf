@@ -12,6 +12,11 @@ resource "kubernetes_manifest" "metrics_server_application" {
         "repoURL"        = "https://github.com/linusyong/helm-charts"
         "targetRevision" = var.helm_repo_version
         "path"           = "metrics-server/${var.metrics_server_helm_version}"
+        "helm" = {
+          "valueFiles" = [
+            "values.yaml",
+          ]
+        }
       }
       "syncPolicy" = {
         "automated" = {
