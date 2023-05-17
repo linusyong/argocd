@@ -1,7 +1,7 @@
 variable "helm_repo_version" {
   description = "The helm repository version"
   type        = string
-  default     = "v0.0.9"
+  default     = "v0.0.10"
   # https://github.com/linusyong/helm-charts/tags
 }
 
