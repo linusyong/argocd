@@ -12,7 +12,7 @@ variable "region" {
 variable "helm_repo_version" {
   description = "The helm repository version"
   type        = string
-  default     = "v0.0.11"
+  default     = "v0.0.13"
   # https://github.com/linusyong/helm-charts/tags
 }
 
