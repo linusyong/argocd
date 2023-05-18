@@ -11,6 +11,6 @@ data "aws_iam_instance_profiles" "instance_profile" {
 data "terraform_remote_state" "eks" {
   backend = "local"
   config = {
-    path = "${local.eks_remote_state}/../01-eks/terraform.tfstate"
+    path = "${local.eks_remote_state}/../../aws/01-eks/terraform.tfstate"
   }
 }
