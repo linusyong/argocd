@@ -3,9 +3,13 @@ output "oidc_url" {
 }
 
 output "node_role" {
-  value = resource.aws_iam_role.node
+  value = aws_iam_role.node
 }
 
 output "cluster" {
-  value = resource.aws_eks_cluster.this
+  value = aws_eks_cluster.this
+}
+
+output "karpenter_iam_role" {
+  value = aws_iam_role.karpenter_iam_role
 }

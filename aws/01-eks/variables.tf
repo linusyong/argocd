@@ -46,5 +46,5 @@ variable "tags" {
 variable "eks_version" {
   description = "The EKS version of the cluster"
   type        = string
-  default     = "1.26"
+  default     = "1.27"
 }

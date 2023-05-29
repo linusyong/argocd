@@ -11,10 +11,12 @@ resource "aws_eks_node_group" "worker" {
     min_size     = 1
   }
 
+  ## https://docs.aws.amazon.com/eks/latest/userguide/retrieve-ami-id-bottlerocket.html
   ami_type       = "BOTTLEROCKET_x86_64" # AL2_x86_64, AL2_x86_64_GPU, AL2_ARM_64, CUSTOM
   disk_size      = 100
-  instance_types = ["t3.medium"]
+  instance_types = ["t3a.medium"]
   capacity_type  = "SPOT" # ON_DEMAND, SPOT
+  version        = var.eks_version
 
   # launch_template {
   #   name    = aws_launch_template.eks_lt.name
